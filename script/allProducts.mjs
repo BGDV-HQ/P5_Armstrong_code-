@@ -5,7 +5,7 @@
       if (response.ok) {
         return response.json();
       } else {
-        throw Error("response is not ok");
+        throw new Error("response is not ok");
       }
     })
     .then(function (data) {
@@ -17,7 +17,7 @@
     });
 
 function displayAllProducts(data) {
-  const productColors = data.colors;
+  const productColors = data.colors[0];
   const productImage = data.imageUrl;
   //const productId = data.id[0];
   //const productName = data.name[0];
@@ -27,7 +27,7 @@ function displayAllProducts(data) {
 
   const productDiv = document.getElementById("items");
 
-  const color = productColors.color;
+  const color = productColors.colors;
   const heading = document.createElement("h1");
   heading.innerHTML = color;
   productDiv.appendChild(heading);
@@ -37,5 +37,4 @@ function displayAllProducts(data) {
   document.body.style.backgroundImage = "url('" + productImage + "')";
 }
 
-displayAllProducts();
 
