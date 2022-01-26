@@ -24,7 +24,7 @@
           <div class="item__content">
 
             <div class="item__content__titlePrice">
-              <h1 id="title"><!-- Nom du produit --></h1>
+              <h1 id="title">${products[i].name}<!-- Nom du produit --></h1>
               <p>Prix : <span id="price">${products[i].price}<!-- 42 --></span>€</p>
             </div>
 
@@ -36,8 +36,8 @@
             <div class="item__content__settings">
               <div class="item__content__settings__color">
                 <label for="color-select">Chose your color:</label>
-                <select name="color-select" id="colors"${products[i].colors}>
-                    <option value="">--Please, select a color --</option>
+                <select name="color-select" id="colors">
+                    <option value="">--Please, select a color${products[i].colors}</option>
 <!--                       <option value="vert">vert</option>
                     <option value="blanc">blanc</option> -->
                 </select>
