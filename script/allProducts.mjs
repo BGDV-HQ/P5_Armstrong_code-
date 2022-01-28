@@ -1,4 +1,4 @@
-  import fetch from 'node-fetch';
+
   import jsdom from "jsdom";
   const JSDOM = jsdom.JSDOM;
 
@@ -58,7 +58,7 @@
       </section>
     </div>
   </main>`;
-      document.getElementById('items').innerHTML = display;
+      GLOBAL.document = new JSDOM(html).document.getElementById('items').innerHTML = display;
   }
 }).catch(error => {                     // if "REJECT" clears the content of main container and displays information for user
   document.getElementById('items').innerHTML = `
