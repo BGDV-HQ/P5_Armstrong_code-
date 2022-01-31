@@ -1,6 +1,4 @@
 
-  import jsdom from "jsdom";
-  const JSDOM = jsdom.JSDOM;
 
   const displayAllProducts = fetch('http://localhost:3000/api/products')
 
