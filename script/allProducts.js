@@ -12,7 +12,14 @@
     
       display +=
         //Here! Need a div(or divs) that reference img, name, price,id (product details), and button(?) 
-        `<main class="limitedWidthBlockContainer">
+      
+            <article>
+              <img src="${products[i].imageUrl}" alt="Lorem ipsum dolor sit amet, Kanap name1"/>
+              <h3 class="productName">Kanap name1</h3>
+              <p class="productDescription">Dis enim malesuada risus sapien gravida nulla nisl arcu. Dis enim malesuada risus sapien gravida nulla nisl arcu.</p>
+            </article>
+        
+    /*    `<main class="limitedWidthBlockContainer">
     <div class="limitedWidthBlock">
       <section class="item">
         <article>
@@ -36,17 +43,18 @@
                 <label for="color-select">Chose your color:</label>
                 <select name="color-select" id="colors">
                     <option value="">--Please, select a color</option>
-<!--                       <option value="vert">vert</option>
-                    <option value="blanc">blanc</option> -->
+                       <option value="">${products[i].colors[0]}</option>
+                       <option value="">${products[i].colors[1]}</option>
+                       <option value="">${products[i].colors[2]}</option>
                 </select>
               </div>
-
+              <br>
               <div class="item__content__settings__quantity">
                 <label for="itemQuantity">Number of articles (1-100):</label>
                 <input type="number" name="itemQuantity" min="1" max="100" value="0" id="quantity">
               </div>
             </div>
-
+            <br>
             <div class="item__content__addButton">
               <button id="addToCart">Add to cart</button>
             </div>
@@ -55,7 +63,7 @@
         </article>
       </section>
     </div>
-  </main>`;
+  </main>`*/
   document.getElementById('items').innerHTML = display;
   }
 }).catch(error => {                     // if "REJECT" clears the content of main container and displays information for user
@@ -69,37 +77,6 @@
 
 });      
     
-
-
-  /*fetch('http://localhost:3000/api/products')
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("response is not ok");
-      }
-    })
-    .then(data => displayAllProducts(data))
-    .catch((error) => console.error("FETCH ERROR:", error));
-
-
-
-function displayAllProducts(data) {
-  const productDiv = document.getElementById("items");
-
-  const productName = data.name[0];
-  const heading = document.createElement("h1");
-  heading.innerHTML = productName;
-  productDiv.appendChild(heading);
-  
-  
-  //const productImage = data.imageUrl;
-  //const productId = data.id[0];
- // const productPrice = data.price[0];
-  //const productDescription = data.description[0];
- // const productAlt = data.altTxt[0];
-
-}*/
 
 
 
