@@ -1,6 +1,6 @@
 
 
-  const displayAllProducts = fetch('http://localhost:3000/api/products')
+  const displayAllProducts = fetch('http://localhost:3000/api/products');
 
   displayAllProducts.then(response => {     
     return response.json();
@@ -35,7 +35,7 @@
               <div class="item__content__settings__color">
                 <label for="color-select">Chose your color:</label>
                 <select name="color-select" id="colors">
-                    <option value="">--Please, select a color${products[i].colors}</option>
+                    <option value="">--Please, select a color</option>
 <!--                       <option value="vert">vert</option>
                     <option value="blanc">blanc</option> -->
                 </select>
@@ -56,7 +56,7 @@
       </section>
     </div>
   </main>`;
-      GLOBAL.document = new JSDOM(html).document.getElementById('items').innerHTML = display;
+  document.getElementById('items').innerHTML = display;
   }
 }).catch(error => {                     // if "REJECT" clears the content of main container and displays information for user
   document.getElementById('items').innerHTML = `
