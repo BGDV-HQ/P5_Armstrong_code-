@@ -41,7 +41,6 @@
 }).catch(error => {                     // if "REJECT" clears the content of main container and displays information for user
   document.getElementById('items').innerHTML = `
       <div>
-          <!-- Here! Need a div(or divs) for errors --!>
           <h2>Sorry, an error occured...(${error})</h2>
           <p>Please refresh your page or come back later while we fix the problem.</p>
       </div>`;
