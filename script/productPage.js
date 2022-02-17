@@ -9,6 +9,9 @@ function getArticle() {
     return response.json();
   }).then(singleProducts => {
     const singleProduct = singleProducts;
+
+    document.getElementById('item__img').src = `${singleProduct.imageUrl}`;
+    
   }).catch(error => {                 
     document.getElementById('items').innerHTML = `
         <div>
@@ -21,10 +24,12 @@ function getArticle() {
 }
 
 
-function getPost(article) {
-  document.getElementById('item__img').src = `${singleProduct.imageUrl}`;
-}
-    
+//function getPost(article) {
+ // document.getElementById('item__img').src = `${singleProduct.imageUrl}`;
+//}
+
+
+
 
 
 
