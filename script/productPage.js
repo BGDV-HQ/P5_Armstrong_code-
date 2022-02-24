@@ -23,6 +23,9 @@ function getArticle() {
     return response.json();
   }).then(singleProducts => {
     const singleProduct = singleProducts;
+
+    getPost(article());
+    
   }).catch(error => {                 
     document.getElementById('items').innerHTML = `
         <div>
@@ -52,6 +55,7 @@ function getPost(article){
     // Insertion of color options
 
 }
+
 
 //Shopping cart management
 function addToCart(article) {
