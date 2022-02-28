@@ -1,9 +1,9 @@
-/*const str = window.location.href;
+const str = window.location.href;
 const url = new URL(str);
 const idProduct = url.searchParams.get("id");
 
 // We spoke about querySelector last week (see below; lines; 6-10)
-console.log(idProduct);*/
+console.log(idProduct);
 let article = "";
 
 const colorPicked = document.querySelector("#colors");
