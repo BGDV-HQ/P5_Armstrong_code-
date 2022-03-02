@@ -9,7 +9,7 @@ let article = "";
 const colorPicked = document.querySelector("#colors");
 const quantityPicked = document.querySelector("#quantity");
 
-getArticle ();
+getArticle();
 
 // Retrieve the articles from the API
 
@@ -47,11 +47,10 @@ function getPost(article){
     let image = document.createElement("img");
     document.querySelector('.item__img').appendChild(image);
     image.src = article.imgUrl;
-    image.alt = article.altTxt;
 
     // Modification of the title "h1
     let title = document.getElementById('title');
-    title.innerHTML = article.name;
+    title.innerHTML = article.title;
 
     // Modification of the price
     let price = document.getElementById('price');
@@ -64,13 +63,50 @@ function getPost(article){
     // Insertion of color options
 
     for (let colors of article.colors) {
-        let colors = document.createElement("option");
-        document.querySelector("#colors").append(colors);
-        colors.value = colors;
-        colors.innerHTML = colors;
+        let colorChoices = document.createElement("option");
+        document.querySelector("#colors").append(colorChoices);
+        colorChoices.value = colors;
+        colorChoices.innerHTML = colors;
     }
 
+    addToCart(article);
+
 }
+
+function addToCart(article) {
+    const basket = document.querySelector("#addToCart");
+    let colorChoice = colorPicked.value;
+    let quantityChoice = quantityPicked.value;
+
+    //Listen to the basket with 2 non-zero color conditions and quantity between 1 and 100
+    basket.addEventListener("click", (event) => { 
+        if (quantityChoice.value > 0 && quantityChoice.value < 100) {
+        }
+    })
+    //Retrieving the options of the item to add to the cart
+    let retrieveOptions = {
+        idProduct: idProduct,
+        image: article.imageUrl,
+        name: article.title,
+        price: article.price,
+        description: article.description,
+        colorOption: colorChoice,
+        quantityOption: quantityChoice,
+    }
+
+};
+
+    //Initialisation of the local storage
+    let productLocalStorage;
+
+    //window pop-up
+    const popupConfirmation =() =>{
+        if (window.confirm (`Your order of ${quantityChoice}  ${article.name}  ${colorChoice} is added to the cart
+To view your cart, click OK`)) {
+            window.location.href ="cart.html";
+        }
+    }
+    
 
 
 
