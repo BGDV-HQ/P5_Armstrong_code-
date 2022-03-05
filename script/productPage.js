@@ -73,39 +73,70 @@ function getPost(article){
 
 }
 
-function addToCart(article) {
-    const basket = document.querySelector("#addToCart");
-    let colorChoice = colorPicked.value;
-    let quantityChoice = quantityPicked.value;
+        function addToCart(article) {
+            const basket = document.querySelector("#addToCart");
+            let colorChoice = colorPicked.value;
+            let quantityChoice = quantityPicked.value;
+        
+            //Ecouter le panier avec 2 conditions couleur non nulle et quantité entre 1 et 100
+            basket.addEventListener("click", (event) => { 
+                if (quantityChoice.value > 0 && quantityChoice.value < 100) {
+        
+        
+                     //Retrieving the options of the item to add to the cart
+                    let retrieveOptions = {
+                        idProduct: idProduct,
+                        image: article.imageUrl,
+                        name: article.title,
+                        price: article.price,
+                        description: article.description,
+                        colorOption: colorChoice,
+                        quantityOption: quantityChoice,
+                    }
+                
+            //Initialisation du local storage
+            let productLocalStorage = JSON.parse(localStorage.getItem("product"));
+        
+            //window pop-up
+            const popUpConfirmation =() =>{
+                if (window.confirm (`Your order of ${quantityChoice}  ${article.name}  ${colorChoice} is added to the cart
+        To view your cart, click OK`)) {
+                    window.location.href ="cart.html";
+                }
+            }
+                
+            //Import into local storage
+            //If the basket already contains at least 1 item
+            if (productLocalStorage) {
+                const resultFind = productLocalStorage.find(
+                    (el) => el.idProduct === idProduct && el.colorOption === colorChoice);
+                 //If the ordered product is already in the basket
+            if (resultFind) {
+                let newQuantity = parseInt(retrieveOptions.quantityOption) + parseInt(resultFind.quantityOption);
+                resultFind.quantityOption = newQuantity;
+                localStorage.setItem("product", JSON.stringify(productLocalStorage));
+                popUpConfirmation();
 
-    //Listen to the basket with 2 non-zero color conditions and quantity between 1 and 100
-    basket.addEventListener("click", (event) => { 
-        if (quantityChoice.value > 0 && quantityChoice.value < 100) {
+                    
+            //If the ordered product is not in the basket
+            } else {
+                productLocalStorage.push(retrieveOptions);
+                localStorage.setItem("product", JSON.stringify(productLocalStorage));
+                popUpConfirmation();
+            }
+            //If the basket is empty
+        } else {
+            productLocalStorage =[];
+            productLocalStorage.push(retrieveOptions);
+            localStorage.setItem("product", JSON.stringify(productLocalStorage));
+            popUpConfirmation();
+            }}
+            });
         }
-    })
-    //Retrieving the options of the item to add to the cart
-    let retrieveOptions = {
-        idProduct: idProduct,
-        image: article.imageUrl,
-        name: article.title,
-        price: article.price,
-        description: article.description,
-        colorOption: colorChoice,
-        quantityOption: quantityChoice,
-    }
-
-};
-
-    //Initialisation of the local storage
-    let productLocalStorage;
-
-    //window pop-up
-    const popupConfirmation =() =>{
-        if (window.confirm (`Your order of ${quantityChoice}  ${article.name}  ${colorChoice} is added to the cart
-To view your cart, click OK`)) {
-            window.location.href ="cart.html";
-        }
-    }
+        
+    
+    
+    
     
 
 
