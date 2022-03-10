@@ -7,8 +7,11 @@ function getCartProducts() {
         let article = document.createElement("article");
         document.querySelector("#cart_items").appendChild(article);
 
+        //let productImage = document.createElement("div");
+        //article.appendChild(productImage);
         let productImage = document.createElement("div");
-        article.appendChild(productImage);
+        productArticle.appendChild(productImage);
+        productImage.className = "cart__item__img";
 
         let image = document.createElement("img");
         productImage.appendChild(image);
