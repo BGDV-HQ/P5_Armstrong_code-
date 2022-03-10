@@ -8,7 +8,7 @@
     const product = products;
     let display = '';
 
-    for (let i in products) {   //adding each camera from the response into DOM
+    for (let i in product) {   //adding each camera from the response into DOM
     
       display +=        
          `<main class="limitedWidthBlockContainer">
@@ -16,18 +16,18 @@
       <section class="item">
         <article>
           <div class="item__img">
-            <img src="${products[i].imageUrl}">
+            <img src="${product[i].imageUrl}">
           </div>
           <div class="item__content">
 
             <div class="item__content__titlePrice">
-              <h1 id="title">${products[i].name}<!-- Nom du produit --></h1>
+              <h1 id="title">${product[i].name}<!-- Nom du produit --></h1>
 
             </div>
 
             <div class="item__content__description">
               <p class="item__content__description__title">Description:</p>
-              <p id="description">${products[i].description}<!-- Dis enim malesuada risus sapien gravida nulla nisl arcu. --></p>
+              <p id="description">${product[i].description}<!-- Dis enim malesuada risus sapien gravida nulla nisl arcu. --></p>
             </div>
             <br>
             
